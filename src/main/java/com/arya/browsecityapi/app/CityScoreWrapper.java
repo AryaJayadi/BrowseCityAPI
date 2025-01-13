@@ -12,5 +12,5 @@ import lombok.NoArgsConstructor;
 public class CityScoreWrapper {
 
     private City city;
-    private int score;
+    private Double score;
 }
