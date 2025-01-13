@@ -5,6 +5,6 @@ import com.arya.browsecityapi.app.City;
 import java.util.List;
 import java.util.Optional;
 
-public interface IRepository<T> {
-    List<T> findAllByName(String name);
+public interface IRepository {
+    List<City> findAllByName(String name);
 }

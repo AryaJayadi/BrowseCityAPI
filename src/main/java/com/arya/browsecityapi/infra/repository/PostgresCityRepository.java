@@ -9,7 +9,7 @@ import java.util.List;
 
 @Repository("jpa")
 @RequiredArgsConstructor
-public class PostgresCityRepository implements IRepository<City> {
+public class PostgresCityRepository implements IRepository {
 
     private final JpaCityRepository jpaCityRepository;
 
