@@ -21,4 +21,11 @@ public class City {
     private BigDecimal latitude;
     private BigDecimal longitude;
     private Long population;
+
+    public City(String name, BigDecimal lat, BigDecimal lon, Long population) {
+        this.name = name;
+        this.latitude = lat;
+        this.longitude = lon;
+        this.population = population;
+    }
 }
