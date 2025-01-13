@@ -17,7 +17,7 @@ public interface CityApi {
             summary = "Search for cities based on a query",
             description = "Returns city suggestions based on partial or complete name matching, optionally considering proximity to the provided latitude and longitude for better scoring",
             parameters = {
-                    @Parameter(name = "q", description = "Partial or complete search term", required = true),
+                    @Parameter(name = "q", description = "Partial or complete search term", required = false),
                     @Parameter(name = "latitude", description = "Latitude of the caller for proximity scoring", required = false),
                     @Parameter(name = "longitude", description = "Longitude of the caller for proximity scoring", required = false)
             },
