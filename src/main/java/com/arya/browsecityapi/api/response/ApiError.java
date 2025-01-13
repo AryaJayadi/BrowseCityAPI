@@ -1,4 +1,4 @@
-package com.arya.browsecityapi.api.exception;
+package com.arya.browsecityapi.api.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

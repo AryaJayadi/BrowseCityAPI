@@ -1,6 +1,7 @@
 package com.arya.browsecityapi.api;
 
 import com.arya.browsecityapi.api.model.SuggestCityApiResponse;
+import com.arya.browsecityapi.app.exception.CityParameterException;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -31,5 +32,5 @@ public interface CityApi {
             @RequestParam(value = "q", required = true) String q,
             @RequestParam(value = "latitude", required = false) BigDecimal latitude,
             @RequestParam(value = "longitude", required = false) BigDecimal longitude
-    );
+    ) throws CityParameterException;
 }

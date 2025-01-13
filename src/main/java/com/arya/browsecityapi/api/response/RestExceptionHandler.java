@@ -1,16 +1,14 @@
-package com.arya.browsecityapi.api.exception;
+package com.arya.browsecityapi.api.response;
 
 import com.arya.browsecityapi.app.exception.CityParameterException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import java.util.Date;
 
-@RestController
-@ControllerAdvice
+@RestControllerAdvice
 public class RestExceptionHandler {
 
     @ExceptionHandler(value = CityParameterException.class)
