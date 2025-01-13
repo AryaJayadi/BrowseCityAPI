@@ -1,10 +1,12 @@
 package com.arya.browsecityapi.api;
 
 import com.arya.browsecityapi.api.model.SuggestCityApiResponse;
+import com.arya.browsecityapi.api.response.SuccessResponse;
 import com.arya.browsecityapi.app.exception.CityParameterException;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -28,7 +30,7 @@ public interface CityApi {
             }
     )
     @GetMapping("/suggestions")
-    List<SuggestCityApiResponse> getSuggestions(
+    ResponseEntity<SuccessResponse<List<SuggestCityApiResponse>>> getSuggestions(
             @RequestParam(value = "q", required = true) String q,
             @RequestParam(value = "latitude", required = false) BigDecimal latitude,
             @RequestParam(value = "longitude", required = false) BigDecimal longitude

@@ -1,7 +1,10 @@
 package com.arya.browsecityapi.api.mapper;
 
 import com.arya.browsecityapi.api.model.SuggestCityApiResponse;
+import com.arya.browsecityapi.api.response.SuccessResponse;
 import com.arya.browsecityapi.app.CityScoreWrapper;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -11,7 +14,7 @@ import java.util.List;
 public class CityApiMapper implements ICityApiMapper {
 
     @Override
-    public List<SuggestCityApiResponse> toSuggestCityApiResponse(List<CityScoreWrapper> cityScores) {
+    public ResponseEntity<SuccessResponse<List<SuggestCityApiResponse>>> toSuggestCityApiResponse(List<CityScoreWrapper> cityScores) {
         List<SuggestCityApiResponse> res = new ArrayList<>();
         for (CityScoreWrapper o : cityScores) {
             res.add(SuggestCityApiResponse.builder()
@@ -21,6 +24,8 @@ public class CityApiMapper implements ICityApiMapper {
                     .score(o.getScore())
                     .build());
         }
-        return res;
+        SuccessResponse<List<SuggestCityApiResponse>> body = new SuccessResponse<>(res);
+        ResponseEntity<SuccessResponse<List<SuggestCityApiResponse>>> response =new ResponseEntity<>(body, HttpStatus.OK);
+        return response;
     }
 }
