@@ -24,7 +24,10 @@ public class CityEntity {
 
     private String ascii;
 
-    @Column(name = "alt_name")
+    @Column(
+        name = "alt_name",
+        length = 255
+    )
     private String altName;
 
     private BigDecimal lat;
