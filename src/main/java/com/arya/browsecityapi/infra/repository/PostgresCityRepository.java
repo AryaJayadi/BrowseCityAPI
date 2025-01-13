@@ -1,6 +1,7 @@
 package com.arya.browsecityapi.infra.repository;
 
 import com.arya.browsecityapi.app.City;
+import com.arya.browsecityapi.infra.CityEntity;
 import com.arya.browsecityapi.infra.ICityRepository;
 import com.arya.browsecityapi.infra.mapper.CityJpaMapper;
 import com.arya.browsecityapi.infra.mapper.ICityJpaMapper;
@@ -18,6 +19,7 @@ public class PostgresCityRepository implements ICityRepository {
 
     @Override
     public List<City> findAllByName(String name) {
-        return jpaCityRepository.findByName(name).map(mapper::toDomainEntity);
+        List<CityEntity> cities = jpaCityRepository.findAllByName(name);
+        return cities.stream().map(mapper::toDomainEntity).toList();
     }
 }
