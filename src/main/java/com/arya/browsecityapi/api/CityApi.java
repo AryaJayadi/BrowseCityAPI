@@ -28,8 +28,8 @@ public interface CityApi {
     )
     @GetMapping("/suggestions")
     List<SuggestCityApiResponse> getSuggestions(
-            @RequestParam String q,
-            @RequestParam(required = false) BigDecimal latitude,
-            @RequestParam(required = false) BigDecimal longitude
+            @RequestParam(value = "q", required = false, defaultValue = "") String q,
+            @RequestParam(value = "latitude", required = false) BigDecimal latitude,
+            @RequestParam(value = "longitude", required = false) BigDecimal longitude
     );
 }
