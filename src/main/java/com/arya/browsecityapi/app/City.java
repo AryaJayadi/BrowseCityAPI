@@ -20,5 +20,5 @@ public class City {
     private List<String> altNames;
     private BigDecimal latitude;
     private BigDecimal longitude;
-    private int population;
+    private Long population;
 }
