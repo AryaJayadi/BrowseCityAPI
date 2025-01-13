@@ -2,6 +2,7 @@ package com.arya.browsecityapi.app.service;
 
 import com.arya.browsecityapi.app.City;
 import com.arya.browsecityapi.app.CityScoreWrapper;
+import com.arya.browsecityapi.app.exception.CityParameterException;
 import com.arya.browsecityapi.infra.ICityRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -22,11 +23,11 @@ public class CityService implements ICityService {
     private final ICityRepository repository;
 
     @Override
-    public List<CityScoreWrapper> getCitySuggestions(String q, BigDecimal latitude, BigDecimal longitude) {
+    public List<CityScoreWrapper> getCitySuggestions(String q, BigDecimal latitude, BigDecimal longitude) throws CityParameterException {
         List<City> cities = repository.findAllByName(q);
 
         if (q.isBlank()) {
-            throw new InvalidParameterException("'q' parameter cannot be null");
+            throw new CityParameterException("'q' parameter cannot be null");
         } else {
             return cities.stream().map(o -> CityScoreWrapper.builder()
                     .city(o)
