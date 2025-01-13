@@ -26,7 +26,7 @@ public class CityEntity {
 
     @Column(
         name = "alt_name",
-        length = 255
+        length = 1024
     )
     private String altName;
 
