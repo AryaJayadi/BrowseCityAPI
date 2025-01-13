@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 
 import java.util.Arrays;
+import java.util.Collections;
 
 @Component
 public class CityJpaMapper implements ICityJpaMapper {
@@ -17,7 +18,9 @@ public class CityJpaMapper implements ICityJpaMapper {
                 .id(String.valueOf(cityEntity.getId()))
                 .name(cityEntity.getName())
                 .ascii(cityEntity.getAscii())
-                .altNames(Arrays.asList(cityEntity.getAltName().split(",")))
+                .altNames(cityEntity.getAltName() != null
+                        ? Arrays.asList(cityEntity.getAltName().split(","))
+                        : Collections.emptyList())
                 .latitude(cityEntity.getLat())
                 .longitude(cityEntity.getLon())
                 .population(cityEntity.getPopulation())

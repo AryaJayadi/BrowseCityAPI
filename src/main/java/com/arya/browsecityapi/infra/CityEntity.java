@@ -31,6 +31,7 @@ public class CityEntity {
     private String altName;
 
     private BigDecimal lat;
+    @Column(name = "long")
     private BigDecimal lon;
 
     @Column(name = "feat_class")
