@@ -3,8 +3,7 @@ package com.arya.browsecityapi.infra;
 import com.arya.browsecityapi.app.City;
 
 import java.util.List;
-import java.util.Optional;
 
-public interface IRepository {
+public interface ICityRepository {
     List<City> findAllByName(String name);
 }
